@@ -1,0 +1,284 @@
+/* ==========================================================
+// THÈME F1 (Page f1_results.html et Formulaire de Contact)
+// ========================================================== */
+
+/* --- Variables et Thème de Base pour F1 --- */
+:root {
+    --f1-red: #E10600; /* Couleur principale F1 */
+    --f1-black: #15151E; /* Fond principal F1 */
+    --f1-white: #FFFFFF;
+    --f1-grey: #666666;
+    --f1-light-grey: #AAAAAA;
+}
+
+.f1-theme {
+    background-color: var(--f1-black);
+    color: var(--f1-white);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.f1-header, .f1-footer {
+    background-color: var(--f1-black);
+    padding: 20px 5%;
+    border-bottom: 5px solid var(--f1-red);
+    text-align: center;
+}
+
+.f1-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5em;
+    color: var(--f1-white);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.f1-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.btn-back {
+    color: var(--f1-white);
+    border: 2px solid var(--f1-red);
+    padding: 8px 15px;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-back:hover {
+    background-color: var(--f1-red);
+}
+
+/* --- Styles du Tableau de Résultats F1 --- */
+.f1-data-dashboard {
+    margin-top: 40px;
+    overflow-x: auto; /* Pour les petits écrans */
+}
+
+.f1-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1em;
+    background-color: #22222A; /* Gris foncé du tableau */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.f1-results-table th {
+    background-color: var(--f1-black);
+    color: var(--f1-light-grey);
+    padding: 15px 10px;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.f1-results-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #33333C;
+    vertical-align: middle;
+}
+
+/* Ligne des pilotes */
+.driver-row {
+    transition: background-color 0.3s;
+    cursor: default;
+}
+.driver-row:nth-child(even) {
+    background-color: #1A1A22; /* Ligne paire légèrement plus foncée */
+}
+.driver-row:hover {
+    background-color: #303038;
+}
+
+/* Cellule de position et barre de couleur d'équipe */
+.pos-cell {
+    font-weight: 700;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Nom du pilote et code */
+.driver-cell {
+    font-weight: 700;
+    white-space: nowrap;
+}
+.driver-code {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-weight: 900;
+    margin-right: 5px;
+    font-family: 'Oswald', sans-serif;
+}
+.full-name {
+    font-weight: 400;
+}
+
+.team-cell {
+    color: var(--f1-light-grey);
+}
+
+/* Indicateur de meilleur temps au tour */
+.fastest-lap-cell {
+    font-style: italic;
+}
+.fastest-lap-indicator {
+    background-color: #C0FFEE; /* Violet (couleur du meilleur tour en F1) */
+    color: var(--f1-black);
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+/* --- Styles de la section API Info --- */
+.api-info {
+    border-top: 2px dashed #444;
+    padding-top: 30px;
+    margin-top: 60px;
+    color: var(--f1-light-grey);
+}
+.api-info h3 {
+    color: var(--f1-red);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+}
+.api-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+.api-info li::before {
+    content: "•";
+    color: var(--f1-red);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* --- Styles du Formulaire de Contact F1 (utilisé dans index.html) --- */
+
+.f1-contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #1A1A22; 
+    border: 3px solid var(--f1-red);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(225, 6, 0, 0.3);
+}
+
+.f1-contact-form .form-group {
+    margin-bottom: 20px;
+    position: relative; /* Pour l'effet lumineux */
+}
+
+.f1-contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--f1-white);
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+
+.f1-contact-form input[type="text"],
+.f1-contact-form input[type="email"],
+.f1-contact-form input[type="tel"],
+.f1-contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    background-color: #22222A;
+    color: var(--f1-white);
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.f1-contact-form input:focus,
+.f1-contact-form textarea:focus {
+    outline: none;
+    border-color: var(--f1-red);
+    box-shadow: 0 0 5px var(--f1-red);
+}
+
+.f1-submit-btn {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--f1-red);
+    color: var(--f1-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    z-index: 1; /* Assure que le texte du bouton est au-dessus de l'animation */
+}
+
+.f1-submit-btn:hover {
+    background-color: #C00500;
+}
+
+/* Animation de la voiture F1 (La voiture doit être un SVG ou une image) */
+.f1-car-animation {
+    content: url('assets/f1-car.svg'); /* Assurez-vous d'avoir ce fichier SVG ! */
+    position: absolute;
+    width: 50px; 
+    height: auto;
+    top: 50%;
+    right: 100%; /* Démarre hors de l'écran à gauche */
+    transform: translateY(-50%) translateX(0);
+    transition: transform 1.5s ease-in, opacity 0.5s;
+    opacity: 0;
+    z-index: 2; /* Devrait être au-dessus du bouton, mais sous le texte du bouton s'il existe */
+}
+
+.f1-submit-btn.sending .f1-car-animation {
+    /* La voiture "roule" vers la droite et sort de l'écran */
+    transform: translateY(-50%) translateX(100px); 
+    opacity: 1;
+}
+
+/* Messages de soumission */
+.form-submission-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.4s;
+    font-weight: bold;
+    text-align: center;
+}
+.form-submission-message.show {
+    opacity: 1;
+}
+.form-submission-message.success {
+    background-color: #28a745; /* Vert pour succès */
+    color: var(--f1-white);
+}
+.form-submission-message.error {
+    background-color: #dc3545; /* Rouge pour erreur */
+    color: var(--f1-white);
+}
+
+/* Media Queries pour la réactivité */
+@media (max-width: 768px) {
+    .f1-logo {
+        font-size: 1.8em;
+    }
+    .f1-results-table {
+        font-size: 0.9em;
+    }
+    .f1-results-table th, .f1-results-table td {
+        padding: 8px 5px;
+    }
+    .driver-code {
+        width: 25px;
+        margin-right: 2px;
+    }
+}

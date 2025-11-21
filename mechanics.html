@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jules Camelin - Mechanical Projects Gallery</title>
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        /* Specific Styles for the Mechanical Gallery (gardez ceux-ci dans mechanics.html ou déplacez-les dans style.css si vous préférez) */
+        
+        .mechanics-content {
+            padding-top: 120px;
+            padding: 80px 10%;
+        }
+
+        .mechanics-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .mechanics-project {
+            background: #111;
+            padding: 20px;
+            border-left: 4px solid red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+        }
+
+        .mechanics-project h3 {
+            color: red;
+            font-size: 24px;
+            border-bottom: 2px dashed #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Image Containers */
+        .image-comparison {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .image-comparison figure {
+            flex: 1;
+            margin: 0;
+            text-align: center;
+        }
+
+        .image-comparison img {
+            width: 100%;
+            height: 180px; /* Fixed height for alignment */
+            object-fit: cover;
+            border: 1px solid #333;
+            cursor: pointer; 
+        }
+        
+        .image-comparison figcaption {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        /* Ensures single image styling is clean */
+        .single-image img {
+            height: 250px; /* Slightly taller for the single preview */
+        }
+        
+        @media (max-width: 600px) {
+            .image-comparison {
+                flex-direction: column; 
+            }
+            .mechanics-content {
+                padding: 40px 5%;
+            }
+        }
+
+        /* LIGHTBOX CSS (Gardez-le ici si vous ne voulez pas le mettre dans style.css) */
+        .lightbox {
+            display: none; 
+            position: fixed;
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-content {
+            position: relative;
+        }
+        #lightbox-img {
+            max-width: 90vw;
+            max-height: 75vh;
+            display: block;
+        }
+        .close-btn {
+            position: absolute;
+            top: -30px; 
+            right: -30px; 
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        /* FIN LIGHTBOX CSS */
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="speedCanvas"></canvas> 
+
+    <header>
+        <div class="checkers"></div>
+    
+        <h1 class="logo">Jules CAMELIN - MECHANICS</h1> 
+    
+        <nav>
+            <a href="index.html#about">← Back to Portfolio</a>
+        </nav>
+    </header>
+
+    <section class="section mechanics-content">
+        <h2>🔧 Engine and Restoration Projects</h2>
+        <p>
+            Beyond IT, mechanics is a strong passion. These projects demonstrate my rigor, perseverance, and ability to manage hands-on projects, from initial diagnosis to final finishing.
+        </p>
+
+        <div class="mechanics-gallery">
+            
+            <div class="mechanics-project" id="205">
+                <h3>Peugeot 205 Junior (Repair and Bodywork)</h3>
+                <p>Complete engine repair and ignition system maintenance, along with bodywork restoration. A long-term project that got the car back on the road.</p>
+
+                <div class="image-comparison">
+                    <figure>
+                        <img 
+                            src="assets/meca/205_debut.jpg" 
+                            alt="205 at the start of the project" 
+                            class="project-img open-lightbox-trigger"
+                            data-src="assets/meca/205_debut.jpg"
+                        >
+                        <figcaption>Before</figcaption>
+                    </figure>
+                    <figure>
+                        <img 
+                            src="assets/meca/205_fin.jpg" 
+                            alt="205 after repair" 
+                            class="project-img open-lightbox-trigger"
+                            data-src="assets/meca/205_fin.jpg"
+                        >
+                        <figcaption>Finished result</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="mechanics-project" id="40V">
+                <h3>MBK 40V (Full Restoration)</h3>
+                <p>Total disassembly for a complete restoration, including engine overhaul, frame painting, and reassembly using original parts.</p>
+
+                <div class="image-comparison">
+                    <figure>
+                        <img 
+                            src="assets/meca/40V_debut.jpg" 
+                            alt="MBK 40V before restoration" 
+                            class="project-img open-lightbox-trigger"
+                            data-src="assets/meca/40V_debut.jpg"
+                        >
+                        <figcaption>Initial state</figcaption>
+                    </figure>
+                    <figure>
+                        <img 
+                            src="assets/meca/40V_fin.jpg" 
+                            alt="MBK 40V after restoration" 
+                            class="project-img open-lightbox-trigger"
+                            data-src="assets/meca/40V_fin.jpg"
+                        >
+                        <figcaption>Restoration completed</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="mechanics-project" id="125">
+                <h3>Peugeot 125 LD 57 TAL (Restoration In Progress)</h3>
+                <p>My next major project. Restoring a vintage motorcycle requiring expertise in 2-stroke engines and full chassis repair. Work has just started.</p>
+
+                <div class="image-comparison single-image">
+                    <figure>
+                        <img 
+                            src="assets/meca/125_ld_57_TAL.jpg" 
+                            alt="Peugeot 125 LD 57 TAL, current state" 
+                            class="project-img open-lightbox-trigger"
+                            data-src="assets/meca/125_ld_57_TAL.jpg"
+                        >
+                        <figcaption>Current state / Project start</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 – Jules Camelin Portfolio</p>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content"> 
+            <span class="close-btn">&times;</span>
+            <img id="lightbox-img" src="">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

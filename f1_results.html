@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="f1_dashboard.css"> </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Latest Results - Jules Camelin Performance Data</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        /* Styles spécifiques pour cette page pour le thème Motorsport */
+        .f1-theme #f1-container {
+            padding: 40px 10%;
+            min-height: 80vh;
+            color: white;
+        }
+        .f1-data-dashboard {
+            padding-top: 20px;
+        }
+        .f1-result-box {
+            background: var(--color-surface, #1e1e1e);
+            border-left: 5px solid var(--color-primary, #e10600); 
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .f1-result-box h3 {
+            color: var(--color-primary, #e10600);
+            border-bottom: 1px dashed #444;
+            padding-bottom: 10px;
+        }
+        .f1-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .podium-item {
+            background: #252525;
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .podium-item.p1 { border-top: 3px solid gold; }
+        .podium-item.p2 { border-top: 3px solid silver; }
+        .podium-item.p3 { border-top: 3px solid #cd7f32; }
+        .api-info {
+            margin-top: 60px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .api-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .api-info li {
+            background: #111;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            border-left: 2px solid var(--color-primary, #e10600);
+        }
+        .btn-back {
+            text-decoration: none;
+            color: white;
+            background: #e10600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            transition: background 0.3s;
+        }
+        .btn-back:hover {
+            background: #ff2a2a;
+        }
+    </style>
+</head>
+<body class="f1-theme">
+    
+    <header class="f1-header">
+        <h1 class="f1-logo">Performance Data // Motorsport Integration</h1>
+        <nav class="f1-nav" style="padding: 20px 10%; display: flex; justify-content: flex-end;">
+            <a href="index.html" class="btn-back">← Back to Portfolio</a>
+        </nav>
+        <div class="checkers"></div>
+    </header>
+
+    <main class="f1-container" id="f1-container">
+        
+        <h2 id="gp-name">F1 Latest Race Results: Loading Data...</h2>
+        
+        <div id="f1-results-content" class="f1-data-dashboard">
+            <p>Connecting to OpenF1 API (Check **f1_script.js** console for details)...</p>
+        </div>
+
+        <section class="api-info">
+            <h3>Technical Showcase: API Integration</h3>
+            <p>This dashboard retrieves live data from the **OpenF1 (Jolpica) API**, demonstrating technical skills in:</p>
+            <ul>
+                <li>**Third-Party API Integration** (Data Fetching)</li>
+                <li>**Asynchronous JavaScript** (Error Handling and Loading States)</li>
+                <li>**Data Parsing** (Mapping JSON data to a custom structure)</li>
+                <li>**CORS Bypass Implementation** (For local development via proxy)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="f1-footer">
+        <p>Data provided by OpenF1 API (Jolpica). © 2025 Jules Camelin.</p>
+    </footer>
+
+    <script src="f1_script.js" defer></script> 
+</body>
+</html>

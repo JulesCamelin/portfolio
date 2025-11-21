@@ -1,0 +1,895 @@
+/* ==========================================================
+   FICHIER GLOBAL : style.css (Version F1 Unifiée)
+   ========================================================== */
+
+/* ---------------------------------- */
+/* 1. NOUVEAUX STYLES : TYPOGRAPHIE ET COULEURS */
+/* ---------------------------------- */
+
+:root {
+    /* Couleurs inspirées du Motorsport */
+    --color-primary: #FF0000; /* Rouge de course/Feu stop */
+    --color-secondary: #AAAAAA; /* Gris métallique/Asphalte */
+    --color-background: #0C0C0D; /* Noir Profond */
+    --color-surface: #1A1A1A; /* Gris Carbone pour les surfaces */
+    --color-text-light: white; /* Texte principal */
+    
+    /* Variables nécessaires au formulaire (ajustées pour être cohérentes) */
+    --color-bg: #111111; 
+    --color-border: #444444; 
+    --color-text: #E0E0E0;
+    --color-primary-rgb: 255, 0, 0;
+
+    --font-heading: 'Oswald', sans-serif; /* Police technique pour titres */
+    --font-body: 'Roboto Condensed', sans-serif; /* Police condensée pour le texte */
+}
+
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body); 
+    background: var(--color-background);
+    color: var(--color-text-light);
+    padding-top: 90px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.section {
+    padding: 80px 10%;
+    border-bottom: 1px solid var(--color-surface);
+    position: relative;
+    z-index: 10;
+}
+
+/* TITLES */
+h2 {
+    font-family: var(--font-heading);
+    font-size: 38px; 
+    border-left: 5px solid var(--color-primary);
+    padding-left: 20px;
+    color: var(--color-text-light);
+    text-shadow: 1px 1px 0px #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff3333;
+}
+
+
+/* ---------------------------------- */
+/* 2. HEADER ET NAVIGATION */
+/* ---------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 85px; 
+    background: black;
+    border-bottom: 3px solid var(--color-primary); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* LOGO */
+.logo {
+    padding: 0 10px;
+    color: var(--color-primary);
+    margin: 0;
+    font-family: var(--font-heading); 
+    font-size: 28px; 
+    letter-spacing: 5px; 
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+}
+
+/* NAV */
+nav a {
+    color: var(--color-secondary); 
+    margin-left: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); 
+}
+
+/* ---------------------------------- */
+/* 3. EFFET DE FOND (Canvas) */
+/* ---------------------------------- */
+#speedCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Laissez le canvas derrière tout le contenu */
+    background-color: #000;
+}
+
+
+/* ---------------------------------- */
+/* 4. INDICATEUR F1 (Points Lumineux - Haut Droit) */
+/* ---------------------------------- */
+.f1-indicator-container {
+    position: fixed; 
+    top: 30px; 
+    right: 20px; 
+    z-index: 30; 
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; 
+}
+
+.f1-indicator-dots {
+    display: flex;
+    gap: 15px; 
+}
+
+.dot {
+    width: 25px; 
+    height: 25px;
+    background-color: rgba(255, 0, 0, 0.1); 
+    border-radius: 50%; 
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.1); 
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.dot.active {
+    background-color: var(--color-primary); 
+    box-shadow: 0 0 15px var(--color-primary), 0 0 25px var(--color-primary); 
+}
+
+
+/* ---------------------------------- */
+/* 5. STYLES POUR ABOUT ME (PHOTO & INFO) */
+/* ---------------------------------- */
+
+.about-intro {
+    display: flex;
+    align-items: center; 
+    gap: 40px; 
+    margin-bottom: 40px; 
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+}
+
+.profile-picture-container {
+    position: relative;
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+    background: var(--color-surface); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        inset 0 0 15px rgba(0,0,0,0.9), 
+        0 0 20px rgba(255,0,0,0.5); 
+    border: 8px solid #000; 
+    overflow: hidden; 
+    flex-shrink: 0;
+    animation: pulseBorder 2s infinite alternate; 
+}
+
+@keyframes pulseBorder {
+    from {
+        box-shadow: 
+            inset 0 0 15px rgba(0,0,0,0.9), 
+            0 0 10px rgba(255, 0, 0, 0.3);
+    }
+    to {
+        box-shadow: 
+            inset 0 0 15px rgba(0,0,0,0.9), 
+            0 0 20px rgba(255, 0, 0, 0.7);
+    }
+}
+
+
+.profile-photo {
+    width: 170px; 
+    height: 170px;
+    border-radius: 50%; 
+    object-fit: cover;
+    object-position: top; 
+    border: 3px solid var(--color-primary); 
+    filter: saturate(1.2); 
+}
+
+.profile-details-and-text {
+    display: flex;
+    flex-direction: column; 
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info h1 {
+    color: white; 
+    font-family: var(--font-heading);
+    font-size: 44px; 
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.profile-info p {
+    font-size: 18px;
+    margin: 5px 0;
+    color: var(--color-secondary); 
+}
+
+.about-text p {
+    text-align: justify; 
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* TIMELINE (About Me et Experience) */
+.timeline .entry {
+    margin: 20px 0;
+    border-left: 3px solid var(--color-primary);
+    padding-left: 20px; 
+}
+
+.timeline .entry h3 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    color: var(--color-primary); 
+    font-size: 22px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.link_to_life {
+    flex-shrink: 0; 
+    margin-left: 15px;
+}
+
+.link_to_life a {
+    text-decoration: none; 
+    color: white; 
+    font-size: 16px;
+    padding: 5px 10px; 
+    border: 1px solid var(--color-primary);
+    border-radius: 2px; 
+    background: rgba(255, 0, 0, 0.15); 
+    transition: 0.3s;
+    display: inline-block; 
+}
+
+.link_to_life a:hover {
+    background: var(--color-primary);
+    color: black;
+    border-color: black;
+    box-shadow: 0 0 8px var(--color-primary);
+}
+
+
+/* ---------------------------------- */
+/* 6. STYLES POUR TECHNOLOGIES (Skills) */
+/* ---------------------------------- */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skill-item {
+    background: var(--color-surface); 
+    padding: 25px; 
+    border-top: 3px solid var(--color-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.skill-item h3 {
+    color: var(--color-secondary); 
+    font-family: var(--font-body);
+    font-size: 20px;
+    margin-top: 0;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 10px;
+}
+
+.skill-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-item li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #333; 
+}
+.skill-item li:last-child {
+    border-bottom: none;
+}
+
+
+/* ---------------------------------- */
+/* 7. STYLES POUR LES PROJETS ET FILTRES */
+/* ---------------------------------- */
+
+.filters {
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.filters button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.filters button:hover,
+.filters button.active {
+    background: var(--color-primary); 
+    color: #000;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+}
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--color-surface);
+    border-left: 4px solid var(--color-primary);
+    padding: 20px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transition pour filtre et survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.project-card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 8px 15px rgba(255, 0, 0, 0.4); 
+}
+
+.project-img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: 15px;
+    cursor: pointer; 
+    transition: opacity 0.3s;
+}
+.project-img:hover {
+    opacity: 0.8;
+}
+
+.project-card .btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: white;
+    padding: 10px 18px;
+    border: 1px solid var(--color-secondary);
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+.project-card .btn:hover {
+    background: var(--color-primary);
+    color: black;
+    border-color: var(--color-primary);
+}
+
+.project-card .technologies {
+    color: var(--color-secondary); 
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* CV */
+.cv-viewer {
+    width: 100%;
+    height: 500px; 
+    border: 2px solid var(--color-primary);
+    margin: 25px 0;
+}
+
+.download-btn {
+    background: var(--color-primary);
+    padding: 15px 25px; 
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    transition: opacity 0.3s;
+}
+.download-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* ---------------------------------- */
+/* 8. STYLES POUR LA SECTION CONTACT (F1) */
+/* ---------------------------------- */
+
+/* ---------------------------------- */
+
+/* STYLES POUR LA SECTION CONTACT */
+
+/* ---------------------------------- */
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+
+    margin-top: 30px;
+
+    text-align: center;
+
+}
+
+
+
+.contact-item {
+
+    background: var(--color-surface); /* Utilisation de la variable Gris Carbone */
+
+    padding: 30px 15px;
+
+    border-radius: 5px;
+
+    border-bottom: 3px solid var(--color-primary); /* Ligne rouge principale */
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: background 0.3s;
+
+    font-family: var(--font-body);
+
+}
+
+
+
+.contact-item h3 {
+
+    color: var(--color-primary); /* Titre en rouge */
+
+    margin-top: 0;
+
+    font-size: 20px;
+
+    font-family: var(--font-heading);
+
+}
+
+
+
+.contact-item p {
+
+    margin-bottom: 0;
+
+}
+
+
+
+.contact-item:hover {
+
+    background: #252525; /* Légère variation au survol */
+
+}
+
+
+
+/* HEADER (reste inchangé) */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 85px; 
+    background: black;
+    border-bottom: 3px solid var(--color-primary); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* LOGO (reste inchangé) */
+.logo {
+    padding: 0 10px;
+    color: var(--color-primary);
+    margin: 0;
+    font-family: var(--font-heading); 
+    font-size: 28px; 
+    letter-spacing: 5px; 
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+}
+
+/* ---------------------------------- */
+/* NOUVEAUX STYLES : FEUX DE DÉPART F1 (NAVIGATION) */
+/* ---------------------------------- */
+.f1-start-lights {
+    display: flex;
+    gap: 15px; /* Espacement entre les "feux" */
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Fond légèrement visible */
+    padding: 8px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.start-light {
+    position: relative;
+    width: 45px; /* Taille des "feux" */
+    height: 45px;
+    background-color: rgba(255, 0, 0, 0.1); /* Couleur initiale sombre/éteinte */
+    border-radius: 50%; /* Forme ronde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 14px; /* Plus petit pour s'intégrer */
+    color: rgba(255, 255, 255, 0.3); /* Texte initialement estompé */
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, color 0.4s ease-in-out;
+    cursor: pointer;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.8); /* Effet de profondeur */
+}
+
+/* État "allumé" du feu */
+.start-light.active {
+    background-color: var(--color-primary); /* Rouge vif */
+    color: white; /* Texte blanc sur fond rouge */
+    box-shadow: 
+        0 0 10px var(--color-primary), /* Halo doux */
+        0 0 20px var(--color-primary), /* Halo plus intense */
+        inset 0 0 10px rgba(255,255,255,0.5); /* Reflet lumineux */
+}
+
+/* Effet de survol sur les feux (même éteints) */
+.start-light:hover:not(.active) {
+    background-color: rgba(255, 0, 0, 0.2); /* Légère lueur au survol */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#contact-form-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 4px;
+    background-color: var(--color-secondary); 
+    border-radius: 2px;
+}
+
+.f1-contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--color-bg); 
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden; 
+}
+
+.form-group {
+    margin-bottom: 30px;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1.1em;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.f1-contact-form input[type="text"],
+.f1-contact-form input[type="email"],
+.f1-contact-form input[type="tel"],
+.f1-contact-form textarea {
+    width: 100%; 
+    padding: 12px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.f1-contact-form input:focus,
+.f1-contact-form textarea:focus {
+    border-color: var(--color-primary); 
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.f1-contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Effet lumineux qui glisse (light effect) */
+.f1-light-effect {
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    width: 0;
+    height: 2px; 
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    transition: width 0.3s ease-out;
+}
+
+/* Bouton d'envoi */
+.f1-submit-btn {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(var(--color-primary-rgb), 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.f1-submit-btn:hover {
+    background-color: #ff2a2a;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(var(--color-primary-rgb), 0.6);
+}
+
+/* Animation de la voiture F1 */
+.f1-car-animation {
+    display: inline-block;
+    width: 25px; 
+    height: 15px;
+    /* Vous devez ajouter le fichier SVG 'assets/f1-car.svg' */
+    /* background-image: url('assets/f1-car.svg'); */ 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px;
+    opacity: 0; 
+    transform: translateX(-50px); 
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.f1-submit-btn.sending .f1-car-animation {
+    opacity: 1;
+    transform: translateX(0); 
+    animation: f1Drive 1.5s forwards; 
+}
+
+@keyframes f1Drive {
+    0% { transform: translateX(0) scale(1); opacity: 1; }
+    50% { transform: translateX(50px) scale(1.1); opacity: 1; }
+    100% { transform: translateX(200px) scale(0.8); opacity: 0; } 
+}
+
+/* Messages de soumission */
+.form-submission-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.form-submission-message.show {
+    opacity: 1;
+}
+
+.form-submission-message.success {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.form-submission-message.error {
+    background-color: #f44336; 
+    color: white;
+}
+
+
+/* ---------------------------------- */
+/* 9. STYLES LIGHTBOX (Unifié) */
+/* ---------------------------------- */
+
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.lightbox.active {
+    display: flex; 
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%; 
+    max-height: 90%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%; 
+    max-height: 75vh; 
+    border: 4px solid var(--color-primary); 
+    border-radius: 4px; 
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); 
+    animation: zoomIn 0.2s ease-out;
+}
+
+.close-btn {
+    position: absolute;
+    top: -25px; 
+    right: -25px;
+    color: var(--color-primary);
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+    text-shadow: 0 0 10px black;
+    z-index: 2001;
+}
+
+.close-btn:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+/* ---------------------------------- */
+/* 10. FOOTER */
+/* ---------------------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    border-top: 3px solid var(--color-primary);
+    font-family: var(--font-body);
+    z-index: 10;
+    position: relative;
+}
+
+/* ---------------------------------- */
+/* 11. RÉACTIVITÉ */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+    .about-intro {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .profile-picture-container {
+        margin-bottom: 20px; 
+    }
+
+    .profile-info h1 {
+        font-size: 30px; 
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .timeline .entry h3 {
+        flex-wrap: wrap; 
+        padding-right: 0;
+    }
+    .link_to_life {
+        margin-top: 5px;
+        margin-left: 0;
+        width: 100%;
+        text-align: center; 
+    }
+    .filters {
+        margin: 20px 0;
+    }
+    .filters button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* Correction de la position de la croix sur mobile */
+    .lightbox-content {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .close-btn {
+        top: 10px; 
+        right: 10px;
+    }
+}
