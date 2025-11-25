@@ -115,26 +115,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // ==========================================================
-    // 3. LOGIQUE INDICATEUR F1 (Allumage des points)
+    // 3. LOGIQUE INDICATEUR F1 (Allumage des points) - MAINTENANT EN BOUCLE
     // ==========================================================
     const indicatorContainer = document.querySelector('.f1-indicator-container');
     const indicatorDots = document.querySelectorAll('.f1-indicator-dots .dot');
 
     if (indicatorContainer && indicatorDots.length > 0) {
+        
         const animateF1Indicator = () => {
             indicatorContainer.style.opacity = '1'; 
 
+            // Étape 1: Allumage progressif
             indicatorDots.forEach((dot, index) => {
                 setTimeout(() => {
                     dot.classList.add('active');
                 }, index * 200); 
             });
 
+            // Étape 2: Extinction (après 1 seconde de pause à l'état MAX)
             setTimeout(() => {
                 indicatorDots.forEach(dot => dot.classList.remove('active'));
             }, indicatorDots.length * 200 + 1000); 
         };
-        setTimeout(animateF1Indicator, 1000); 
+        
+        // 1. Lancement immédiat de la première animation
+        animateF1Indicator();
+        
+        // 2. Répétition de l'animation toutes les 3 secondes (3000 ms)
+        setInterval(animateF1Indicator, 3000); 
     }
 
 
@@ -199,11 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (loop) {
+                    // Cette boucle est indépendante de l'indicateur F1, elle est gérée par setTimeout
                     setTimeout(() => animateStartLights(true), 3000);
                 }
             }, delay + 1000);
         };
 
+        // Lancement initial des feux de navigation
         setTimeout(() => animateStartLights(false), 2000);
 
         // Rendre les feux cliquables pour naviguer
