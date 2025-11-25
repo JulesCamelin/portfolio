@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 - The Ultimate Answer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #FF0000;
+            --color-text-light: white;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Roboto Condensed', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            font-family: var(--font-body);
+        }
+
+        .konami-content {
+            padding: 20px;
+            animation: fadeInScale 0.7s ease-out forwards;
+        }
+
+        .konami-number {
+            font-family: var(--font-heading);
+            font-size: 15vw;
+            font-weight: bold;
+            color: #FF8C00; /* Orange vif */
+            text-shadow: 0 0 30px #FF8C00, 0 0 60px #FF4500; /* Halo intense */
+            animation: konamiBlink 1s infinite alternate; /* Clignotement */
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .konami-message {
+            font-family: var(--font-body);
+            font-size: 2.5vw;
+            color: var(--color-text-light);
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 20px;
+            background: var(--color-primary);
+            color: black;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 1.5vw;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .back-link:hover {
+            background: #FF4500;
+            transform: scale(1.05);
+        }
+
+        /* Animations Keyframes */
+        @keyframes konamiBlink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInScale {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .konami-number {
+                font-size: 30vw;
+            }
+            .konami-message, .back-link {
+                font-size: 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="konami-content">
+        <span class="konami-number">42</span>
+        <p class="konami-message">The Ultimate Answer to Life, The Universe, and Everything.<br></p>
+        <a href="index.html" class="back-link">
+            &laquo; BACK TO PORTFOLIO
+        </a>
+    </div>
+</body>
+</html>

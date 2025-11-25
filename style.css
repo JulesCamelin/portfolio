@@ -1,6 +1,6 @@
 /* ==========================================================
-   FICHIER GLOBAL : style.css (Version F1 Unifiée)
-   ========================================================== */
+  FICHIER GLOBAL : style.css (Version F1 Unifiée et Corrigée Mobile)
+  ========================================================== */
 
 /* ---------------------------------- */
 /* 1. NOUVEAUX STYLES : TYPOGRAPHIE ET COULEURS */
@@ -35,6 +35,7 @@ body {
     font-family: var(--font-body); 
     background: var(--color-background);
     color: var(--color-text-light);
+    /* padding-top: 90px; <- SERA CORRIGÉ DANS LA RÉACTIVITÉ */
     padding-top: 90px;
     line-height: 1.6;
     overflow-x: hidden;
@@ -104,7 +105,7 @@ header {
     text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
 }
 
-/* NAV */
+/* NAV (Liens de navigation standard) */
 nav a {
     color: var(--color-secondary); 
     margin-left: 25px;
@@ -127,7 +128,7 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Laissez le canvas derrière tout le contenu */
+    z-index: -1; 
     background-color: #000;
 }
 
@@ -383,7 +384,7 @@ nav a:hover {
     background: var(--color-surface);
     border-left: 4px solid var(--color-primary);
     padding: 20px;
-    transition: opacity 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transition pour filtre et survol */
+    transition: opacity 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -458,105 +459,38 @@ nav a:hover {
 /* 8. STYLES POUR LA SECTION CONTACT (F1) */
 /* ---------------------------------- */
 
-/* ---------------------------------- */
-
-/* STYLES POUR LA SECTION CONTACT */
-
-/* ---------------------------------- */
-
 .contact-grid {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
     gap: 30px;
-
     margin-top: 30px;
-
     text-align: center;
-
 }
-
-
 
 .contact-item {
-
-    background: var(--color-surface); /* Utilisation de la variable Gris Carbone */
-
+    background: var(--color-surface); 
     padding: 30px 15px;
-
     border-radius: 5px;
-
-    border-bottom: 3px solid var(--color-primary); /* Ligne rouge principale */
-
+    border-bottom: 3px solid var(--color-primary); 
     text-decoration: none;
-
     color: white;
-
     transition: background 0.3s;
-
     font-family: var(--font-body);
-
 }
-
-
 
 .contact-item h3 {
-
-    color: var(--color-primary); /* Titre en rouge */
-
+    color: var(--color-primary); 
     margin-top: 0;
-
     font-size: 20px;
-
     font-family: var(--font-heading);
-
 }
-
-
 
 .contact-item p {
-
     margin-bottom: 0;
-
 }
-
-
 
 .contact-item:hover {
-
-    background: #252525; /* Légère variation au survol */
-
-}
-
-
-
-/* HEADER (reste inchangé) */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 85px; 
-    background: black;
-    border-bottom: 3px solid var(--color-primary); 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 1000;
-    box-sizing: border-box;
-}
-
-/* LOGO (reste inchangé) */
-.logo {
-    padding: 0 10px;
-    color: var(--color-primary);
-    margin: 0;
-    font-family: var(--font-heading); 
-    font-size: 28px; 
-    letter-spacing: 5px; 
-    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+    background: #252525; 
 }
 
 /* ---------------------------------- */
@@ -564,9 +498,9 @@ header {
 /* ---------------------------------- */
 .f1-start-lights {
     display: flex;
-    gap: 15px; /* Espacement entre les "feux" */
+    gap: 15px; 
     align-items: center;
-    background: rgba(0, 0, 0, 0.7); /* Fond légèrement visible */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 8px 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
@@ -574,39 +508,40 @@ header {
 
 .start-light {
     position: relative;
-    width: 45px; /* Taille des "feux" */
+    width: 45px; 
     height: 45px;
-    background-color: rgba(255, 0, 0, 0.1); /* Couleur initiale sombre/éteinte */
-    border-radius: 50%; /* Forme ronde */
+    background-color: rgba(255, 0, 0, 0.1); 
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font-heading);
-    font-size: 14px; /* Plus petit pour s'intégrer */
-    color: rgba(255, 255, 255, 0.3); /* Texte initialement estompé */
+    font-size: 14px; 
+    color: rgba(255, 255, 255, 0.3); 
     text-decoration: none;
     text-transform: uppercase;
     transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, color 0.4s ease-in-out;
     cursor: pointer;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.8); /* Effet de profondeur */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.8); 
 }
 
 /* État "allumé" du feu */
 .start-light.active {
-    background-color: var(--color-primary); /* Rouge vif */
-    color: white; /* Texte blanc sur fond rouge */
+    background-color: var(--color-primary); 
+    color: white; 
     box-shadow: 
-        0 0 10px var(--color-primary), /* Halo doux */
-        0 0 20px var(--color-primary), /* Halo plus intense */
-        inset 0 0 10px rgba(255,255,255,0.5); /* Reflet lumineux */
+        0 0 10px var(--color-primary), 
+        0 0 20px var(--color-primary), 
+        inset 0 0 10px rgba(255,255,255,0.5); 
 }
 
 /* Effet de survol sur les feux (même éteints) */
 .start-light:hover:not(.active) {
-    background-color: rgba(255, 0, 0, 0.2); /* Légère lueur au survol */
+    background-color: rgba(255, 0, 0, 0.2); 
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* Styles Formulaire Contact */
 #contact-form-section h2::after {
     content: '';
     position: absolute;
@@ -847,6 +782,50 @@ footer {
 /* 11. RÉACTIVITÉ */
 /* ---------------------------------- */
 @media (max-width: 768px) {
+    
+    /* === CORRECTION HEADER ET NAVIGATION MOBILE === */
+    header {
+        height: auto; /* Permet au header d'augmenter en hauteur */
+        flex-direction: column; /* Empile le logo et la navigation */
+        padding: 10px 10px; /* Réduit le padding général */
+    }
+
+    .logo {
+        margin-bottom: 5px; /* Ajoute un petit espace entre le logo et la nav */
+    }
+
+    /* Styles pour la navigation standard (si utilisée) */
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* Force les liens à passer à la ligne */
+        justify-content: center; 
+        padding: 5px 0;
+    }
+
+    nav a {
+        margin: 5px 10px; /* Réduit l'espace entre les liens */
+        font-size: 14px; 
+    }
+    
+    /* Styles pour les feux de départ F1 (navigation) */
+    .f1-start-lights {
+        gap: 8px; /* Réduit l'espacement entre les feux */
+        padding: 5px 10px;
+    }
+
+    .start-light {
+        width: 35px; /* Réduit la taille des feux */
+        height: 35px;
+        font-size: 10px; 
+    }
+    
+    /* === AJUSTEMENT DU PADDING DU BODY === */
+    body {
+        /* Augmente le padding-top pour que le contenu ne soit pas caché sous le header élargi */
+        padding-top: 140px; 
+    }
+
+    /* === RÈGLES DE CONTENU DIVERSES === */
     .about-intro {
         flex-direction: column; 
         text-align: center; 
@@ -892,72 +871,8 @@ footer {
         top: 10px; 
         right: 10px;
     }
-}
-
-/* ==========================================================
-   KONAMI CODE OVERLAY
-   ========================================================== */
-#konami-overlay {
-    display: none; /* Caché par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95); /* Fond très sombre */
-    z-index: 9999; /* Au-dessus de TOUT */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    cursor: pointer; /* Indique qu'on peut cliquer pour fermer */
-    opacity: 0; /* Pour une transition d'apparition/disparition fluide */
-    transition: opacity 0.5s ease-in-out;
-}
-
-#konami-overlay.active {
-    display: flex; /* Affiché quand actif */
-    opacity: 1;
-}
-
-.konami-content {
-    animation: fadeInScale 0.7s ease-out forwards; /* Animation à l'apparition */
-}
-
-.konami-number {
-    font-family: var(--font-heading);
-    font-size: 15vw; /* Très grand, responsive */
-    font-weight: bold;
-    color: #FF8C00; /* Orange vif */
-    text-shadow: 0 0 20px #FF8C00, 0 0 40px #FF4500; /* Halo orange/rouge */
-    animation: konamiBlink 1s infinite alternate; /* Clignotement */
-    display: block; /* Pour que le texte soit sur sa propre ligne */
-    margin-bottom: 20px;
-}
-
-.konami-message {
-    font-family: var(--font-body);
-    font-size: 2.5vw; /* Taille responsive */
-    color: var(--color-text-light);
-    line-height: 1.4;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-/* Animations Keyframes */
-@keyframes konamiBlink {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-@keyframes fadeInScale {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* RESPONSIVE pour les tailles de texte */
-@media (max-width: 768px) {
+    
+    /* KONAMI CODE OVERLAY (Règles existantes) */
     .konami-number {
         font-size: 25vw;
     }
