@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; 
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; 
             ctx.fillRect(0, 0, W, H);
 
             for (let i = 0; i < lines.length; i++) {
