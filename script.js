@@ -261,7 +261,52 @@ if (indicatorContainer && indicatorDots.length > 0) {
                 });
             });
         }
-    
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+    // ... (Votre LOGIQUE LIGHTBOX existante) ...
+    // ... (Votre LOGIQUE CANVAS F1 FUTURISTE existante) ...
+    // ... (Votre LOGIQUE INDICATEUR F1 (Allumage des points) existante) ...
+    // ... (Votre LOGIQUE DE FILTRAGE DES PROJETS existante) ...
+    // ... (Votre NOUVELLE LOGIQUE : FEUX DE DÉPART F1 (ANIMATION NAVIGATION) existante) ...
+
+    // ==========================================================
+    // LOGIQUE KONAMI CODE (EASTER EGG)
+    // ==========================================================
+    const konamiCode = [
+        'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+        'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+        'b', 'a'
+    ];
+    let konamiCodePosition = 0;
+
+    const konamiOverlay = document.getElementById('konami-overlay');
+
+    document.addEventListener('keydown', (e) => {
+        // Vérifie si la touche pressée correspond à l'étape actuelle du Konami Code
+        if (e.key === konamiCode[konamiCodePosition]) {
+            konamiCodePosition++;
+
+            // Si toutes les étapes du code sont réussies
+            if (konamiCodePosition === konamiCode.length) {
+                console.log("Konami Code Activated!");
+                konamiOverlay.classList.add('active'); // Affiche l'overlay
+                konamiCodePosition = 0; // Réinitialise pour une prochaine activation
+            }
+        } else {
+            // Si une touche incorrecte est pressée, réinitialise la position
+            konamiCodePosition = 0;
+        }
+    });
+
+    // Cacher l'overlay quand on clique dessus
+    if (konamiOverlay) {
+        konamiOverlay.addEventListener('click', () => {
+            konamiOverlay.classList.remove('active'); // Cache l'overlay
+        });
+    }
+
+}); // Fin de DOMContentLoaded
     }); // Fin de DOMContentLoaded
 });
 
