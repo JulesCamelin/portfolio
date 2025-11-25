@@ -893,3 +893,75 @@ footer {
         right: 10px;
     }
 }
+
+/* ==========================================================
+   KONAMI CODE OVERLAY
+   ========================================================== */
+#konami-overlay {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Fond très sombre */
+    z-index: 9999; /* Au-dessus de TOUT */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    cursor: pointer; /* Indique qu'on peut cliquer pour fermer */
+    opacity: 0; /* Pour une transition d'apparition/disparition fluide */
+    transition: opacity 0.5s ease-in-out;
+}
+
+#konami-overlay.active {
+    display: flex; /* Affiché quand actif */
+    opacity: 1;
+}
+
+.konami-content {
+    animation: fadeInScale 0.7s ease-out forwards; /* Animation à l'apparition */
+}
+
+.konami-number {
+    font-family: var(--font-heading);
+    font-size: 15vw; /* Très grand, responsive */
+    font-weight: bold;
+    color: #FF8C00; /* Orange vif */
+    text-shadow: 0 0 20px #FF8C00, 0 0 40px #FF4500; /* Halo orange/rouge */
+    animation: konamiBlink 1s infinite alternate; /* Clignotement */
+    display: block; /* Pour que le texte soit sur sa propre ligne */
+    margin-bottom: 20px;
+}
+
+.konami-message {
+    font-family: var(--font-body);
+    font-size: 2.5vw; /* Taille responsive */
+    color: var(--color-text-light);
+    line-height: 1.4;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Animations Keyframes */
+@keyframes konamiBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* RESPONSIVE pour les tailles de texte */
+@media (max-width: 768px) {
+    .konami-number {
+        font-size: 25vw;
+    }
+    .konami-message {
+        font-size: 4.5vw;
+    }
+}
