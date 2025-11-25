@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             animateStartLights();
             // Puis, répétez l'animation toutes les 3 secondes
-            setInterval(animateStartLights, 3000);
+            setInterval(animateStartLights, 10000);
         }, 2000);
 
 
