@@ -182,41 +182,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // ==========================================================
-    // 5. LOGIQUE : FEUX DE DÉPART F1 (ANIMATION NAVIGATION)
+    // 5. LOGIQUE : FEUX DE DÉPART F1 (ANIMATION NAVIGATION) - MAINTENANT EN BOUCLE
     // ==========================================================
     const startLights = document.querySelectorAll('.f1-start-lights .start-light');
     
     if (startLights.length > 0) {
+        // Le bouton "All" des filtres de projets est activé après l'animation.
+        // Si vous ne voulez pas ce comportement à chaque boucle, nous devrons ajuster.
         const filterAllButton = document.querySelector('.filters button[data-filter="all"]');
 
-        const animateStartLights = (loop = false) => {
+        const animateStartLights = () => { // La fonction n'a plus besoin du paramètre 'loop'
             let delay = 0;
+            // On s'assure que tous les feux sont éteints avant de relancer l'animation
             startLights.forEach(light => light.classList.remove('active'));
 
             startLights.forEach((light, index) => {
                 setTimeout(() => {
                     light.classList.add('active');
                 }, delay);
-                delay += 300;
+                delay += 300; // Délai entre chaque allumage
             });
 
+            // Une fois que tous les feux sont allumés, on les éteint après une pause.
             setTimeout(() => {
                 startLights.forEach(light => light.classList.remove('active'));
+                // Si vous voulez que le bouton "All" soit actif à la fin de chaque boucle :
                 if (filterAllButton) {
                     filterAllButton.classList.add('active');
                 }
-
-                if (loop) {
-                    // Cette boucle est indépendante de l'indicateur F1, elle est gérée par setTimeout
-                    setTimeout(() => animateStartLights(true), 3000);
-                }
-            }, delay + 1000);
+            }, delay + 1000); // 1000 ms de pause après l'allumage du dernier feu
         };
 
-        // Lancement initial des feux de navigation
-        setTimeout(() => animateStartLights(false), 2000);
+        // Lancement initial de l'animation des feux de navigation (après 2 secondes de chargement)
+        setTimeout(() => {
+            animateStartLights();
+            // Puis, répétez l'animation toutes les 3 secondes
+            setInterval(animateStartLights, 3000);
+        }, 2000);
 
-        // Rendre les feux cliquables pour naviguer
+
+        // Rendre les feux cliquables pour naviguer (ce comportement reste le même)
         startLights.forEach(light => {
             light.addEventListener('click', (e) => {
                 e.preventDefault(); 
@@ -226,12 +231,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
                 
+                // Active le feu cliqué, et désactive les autres (pour une navigation)
                 startLights.forEach(btn => btn.classList.remove('active'));
                 light.classList.add('active');
             });
         });
     }
-
 
     // ==========================================================
     // 6. LOGIQUE KONAMI CODE (REDIRECTION VERS UNE NOUVELLE PAGE)
