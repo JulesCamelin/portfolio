@@ -382,23 +382,23 @@ nav a:hover {
 /* 3. Application dynamique des niveaux (méthode de sélecteurs pour la fiabilité) */
 
 /* DEV LANGUAGES */
-.skill-category:nth-child(1) .skill-list li[data-level="65"]::after { width: 65%; }
+.skill-category:nth-child(1) .skill-list li[data-level="85"]::after { width: 85%; }
 .skill-category:nth-child(1) .skill-list li[data-level="75"]::after { width: 75%; }
 .skill-category:nth-child(1) .skill-list li[data-level="60"]::after { width: 60%; }
-.skill-category:nth-child(1) .skill-list li[data-level="50"]::after { width: 50%; }
+.skill-category:nth-child(1) .skill-list li[data-level="40"]::after { width: 40%; }
 /* DATA & DB */
 .skill-category:nth-child(2) .skill-list li[data-level="80"]::after { width: 80%; }
+.skill-category:nth-child(2) .skill-list li[data-level="70"]::after { width: 70%; }
 .skill-category:nth-child(2) .skill-list li[data-level="75"]::after { width: 75%; }
-.skill-category:nth-child(2) .skill-list li[data-level="85"]::after { width: 85%; }
 /* TOOLS & DESIGN */
-.skill-category:nth-child(3) .skill-list li[data-level="75"]::after { width: 75%; }
+.skill-category:nth-child(3) .skill-list li[data-level="65"]::after { width: 65%; }
 .skill-category:nth-child(3) .skill-list li[data-level="45"]::after { width: 45%; }
-.skill-category:nth-child(3) .skill-list li[data-level="80"]::after { width: 80%; }
+.skill-category:nth-child(3) .skill-list li[data-level="50"]::after { width: 50%; }
 .skill-category:nth-child(3) .skill-list li[data-level="90"]::after { width: 90%; }
 /* LANGUAGE SKILLS */
-.skill-category:nth-child(4) .skill-list li[data-level="100"]::after { width: 100%; }
+.skill-category:nth-child(4) .skill-list li[data-level="95"]::after { width: 95%; }
 .skill-category:nth-child(4) .skill-list li[data-level="70"]::after { width: 70%; }
-.skill-category:nth-child(4) .skill-list li[data-level="60"]::after { width: 60%; }
+.skill-category:nth-child(4) .skill-list li[data-level="55"]::after { width: 55%; }
 .skill-category:nth-child(4) .skill-list li[data-level="20"]::after { width: 20%; }
 
 
