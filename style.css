@@ -1,6 +1,6 @@
 /* ==========================================================
-  FICHIER GLOBAL : style.css (Version F1 Unifiée et Corrigée Mobile)
-  ========================================================== */
+ * FICHIER GLOBAL : style.css (Version F1 Unifiée et Corrigée Mobile)
+ * ========================================================== */
 
 /* ---------------------------------- */
 /* 1. NOUVEAUX STYLES : TYPOGRAPHIE ET COULEURS */
@@ -35,7 +35,6 @@ body {
     font-family: var(--font-body); 
     background: var(--color-background);
     color: var(--color-text-light);
-    /* padding-top: 90px; <- SERA CORRIGÉ DANS LA RÉACTIVITÉ */
     padding-top: 90px;
     line-height: 1.6;
     overflow-x: hidden;
@@ -386,11 +385,28 @@ nav a:hover {
     padding: 20px;
     transition: opacity 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* NOUVEAU : Interligne par défaut pour toute la carte */
+    line-height: 1.5; 
 }
 
 .project-card:hover {
     transform: translateY(-8px); 
     box-shadow: 0 8px 15px rgba(255, 0, 0, 0.4); 
+}
+
+/* NOUVEAU : Amélioration de l'espacement du texte à l'intérieur des cartes */
+.project-card h3 {
+    font-size: 1.2em; /* Rend le titre un peu plus grand */
+    margin-top: 5px;
+    margin-bottom: 10px; /* Espace sous le titre */
+}
+
+/* NOUVEAU : Espacement de la description principale du projet */
+.project-card p {
+    margin-top: 5px; 
+    margin-bottom: 18px; /* Plus d'espace sous le texte descriptif */
+    line-height: 1.6; /* Aération de l'interligne */
+    font-size: 15px;
 }
 
 .project-img {
@@ -428,7 +444,7 @@ nav a:hover {
     color: var(--color-secondary); 
     font-size: 14px;
     margin-top: -10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Plus d'espace entre les technologies et le bouton */
 }
 
 /* CV */
@@ -779,7 +795,63 @@ footer {
 }
 
 /* ---------------------------------- */
-/* 11. RÉACTIVITÉ */
+/* 11. RÉSULTATS F1 (Konami Code) */
+/* ---------------------------------- */
+
+#f1-data-display {
+    /* Cache l'élément par défaut, il sera affiché par le JS lors du Konami Code */
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3000; /* Assurez-vous qu'il est au-dessus de tout */
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    background: rgba(12, 12, 13, 0.95); /* Fond sombre avec transparence */
+    border: 5px solid var(--color-primary);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+#f1-data-display h2 {
+    font-size: 28px;
+    color: var(--color-primary);
+    border-left: none;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+#f1-data-display h3 {
+    font-size: 1.5em;
+    color: var(--color-secondary);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#f1-data-display ul {
+    list-style: none;
+    padding: 0;
+}
+
+#f1-data-display li {
+    padding: 5px 0;
+    font-size: 1.1em;
+    border-bottom: 1px dotted #444;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ---------------------------------- */
+/* 12. RÉACTIVITÉ */
 /* ---------------------------------- */
 @media (max-width: 768px) {
     
@@ -878,5 +950,14 @@ footer {
     }
     .konami-message {
         font-size: 4.5vw;
+    }
+
+    /* Ajustement de l'affichage F1 sur mobile */
+    #f1-data-display {
+        width: 95%;
+        padding: 20px;
+    }
+    #f1-data-display h2 {
+        font-size: 24px;
     }
 }
