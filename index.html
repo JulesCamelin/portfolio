@@ -15,133 +15,131 @@
     <header>
         <div class="checkers"></div>
     
-        <h1 class="logo">Jules CAMELIN</h1> 
+        <h1 class="logo" data-translate="intro_title">Jules CAMELIN</h1> 
     
         <nav class="f1-start-lights">
-            <a href="#about" class="start-light" data-light-index="1">About</a>
-            <a href="#technologies" class="start-light" data-light-index="2">Skills</a>
-            <a href="#projects" class="start-light" data-light-index="3">Projects</a>
-            <a href="#references" class="start-light" data-light-index="4">Refs</a>
-            <a href="#contact" class="start-light" data-light-index="5">Contact</a>
-        </nav>
-
+            <a href="#about" class="start-light" data-light-index="1" data-translate="nav_about">About</a>
+            <a href="#technologies" class="start-light" data-light-index="2" data-translate="nav_skills">Skills</a>
+            <a href="#projects" class="start-light" data-light-index="3" data-translate="nav_projects">Projects</a>
+            <a href="#references" class="start-light" data-light-index="4" data-translate="nav_refs">Refs</a>
+            <a href="#contact" class="start-light" data-light-index="5" data-translate="nav_contact">Contact</a>
             
+            <button id="lang-toggle" class="lang-btn">🇫🇷 FR</button>
+        </nav>
     </header>
     
     <section id="about" class="section">
-    <h2>My Profile and Vision</h2> 
+        <h2 data-translate="section_about">My Profile and Vision</h2> 
     
-    <div class="about-intro">
-        <div class="profile-picture-container"> 
-            <a href="https://www.linkedin.com/in/jules-camelin" target="_blank" title="Check my LinkedIn profile">
-                <img src="assets/image_perso.jpg" alt="Profile Picture of Jules CAMELIN" class="profile-photo"> 
-            </a>
+        <div class="about-intro">
+            <div class="profile-picture-container"> 
+                <a href="https://www.linkedin.com/in/jules-camelin" target="_blank" title="Check my LinkedIn profile">
+                    <img src="assets/image_perso.jpg" alt="Profile Picture of Jules CAMELIN" class="profile-photo"> 
+                </a>
+            </div>
+    
+            <div class="profile-details-and-text">
+                <div class="profile-info">
+                    <p class="title-highlight" data-translate="bio_title">IT Student | Data & Performance Enthusiast</p> 
+                    <p data-translate="bio_age">19 years old</p>
+                    <p data-translate="bio_hobby">Motorsport Enthusiast</p>
+                </div>
+                
+                <div class="about-text">
+                    <p data-translate="bio_desc">
+                        Hello! I'm a second-year IT student focused on Data Analysis and Performance Engineering. This portfolio presents my academic work, personal projects, and commitment to discipline, developed through my studies, my military service, and my passion for motorsport.
+                    </p>
+                </div>
+            </div>
         </div>
     
-        <div class="profile-details-and-text">
-            <div class="profile-info">
-                <p class="title-highlight">IT Student | Data & Performance Enthusiast</p> 
-                <p>19 years old</p>
-                <p>Motorsport Enthusiast</p>
-            </div>
+        <div class="timeline">
             
-            <div class="about-text">
-                <p>
-                    Hello! I'm a second-year IT student focused on Data Analysis and Performance Engineering. This portfolio presents my academic work, personal projects, and commitment to discipline, developed through my studies, my military service, and my passion for motorsport.
+            <div class="entry">
+                <h3>
+                    <span data-translate="tl_academic_title">🎓 Academic Background</span>
+                    <div class ="link_to_life">  
+                        <a href="https://www.iut-acy.univ-smb.fr/" target="_blank" title="IUT Annecy's website">🔗</a>
+                    </div>
+                </h3>
+                <p data-translate="tl_academic_desc">
+                    I am currently a second-year student in Computer Science at IUT Annecy. This program allows me to acquire solid expertise in development and information systems, while fueling my passion for technological innovation.
                 </p>
             </div>
 
-            
-        </div>
-    </div>
-    
-    <div class="timeline">
+            <div class="entry">
+                <h3>
+                    <span data-translate="tl_military_title">🛡️ Military and Civic Commitment</span>
+                    <div class ="link_to_life">  
+                        <a href="https://www.instagram.com/13_bca/?hl=fr" target="_blank" title="13th BCA Instagram Account">🔗</a>
+                    </div>
+                </h3>
+                <p data-translate="tl_military_desc">
+                    I am a reservist in the 13th Battalion of Chasseurs Alpins (13th BCA). This commitment reflects my sense of responsibility, discipline, and desire for self-improvement, qualities that I also apply in my professional projects.
+                </p>
+            </div>
+
+            <div class="entry">
+                <h3>
+                    <span data-translate="tl_sports_title">🤸 Sports and Hobbies</span>
+                    <div class ="link_to_life">  
+                        <a href="https://etoilemotteraine.comiti-sport.fr/" target="_blank" title="Gymnastics Club Link">🔗</a>
+                    </div>
+                </h3>
+                <p data-translate="tl_sports_desc">
+                    I have been practicing Gymnastics for 10 years. This sport has taught me rigor, perseverance, and precision—fundamental assets in the field of programming.
+                </p>
+            </div>
         
-        <div class="entry">
-            <h3>
-                <span>🎓 Academic Background</span>
-                <div class ="link_to_life">  
-                    <a href="https://www.iut-acy.univ-smb.fr/" target="_blank" title="IUT Annecy's website">🔗</a>
-                </div>
-            </h3>
-            <p>
-                I am currently a second-year student in Computer Science at IUT Annecy. This program allows me to acquire solid expertise in development and information systems, while fueling my passion for technological innovation.
-            </p>
-        </div>
+            <div class="entry">
+                <h3>
+                    <span data-translate="tl_meca_title">⚙️ Personal Mechanical Projects</span>
+                    <div class ="link_to_life"> 
+                        <a href="mechanics.html" title="View Mechanical Projects Gallery">🔗</a> 
+                    </div>
+                </h3>
+                <p data-translate="tl_meca_desc">
+                    As a mechanic and restoration enthusiast, I am currently working on repairing my car, a Peugeot 205 Junior, as well as an MBK 40V moped. My next project will be the restoration of a Peugeot 125 LD 57 TAL motorcycle.
+                </p>
+            </div>
 
-        <div class="entry">
-            <h3>
-                <span>🛡️ Military and Civic Commitment</span>
-                <div class ="link_to_life">  
-                    <a href="https://www.instagram.com/13_bca/?hl=fr" target="_blank" title="13th BCA Instagram Account">🔗</a>
-                </div>
-            </h3>
-            <p>
-                I am a reservist in the 13th Battalion of Chasseurs Alpins (13th BCA). This commitment reflects my sense of responsibility, discipline, and desire for self-improvement, qualities that I also apply in my professional projects.
-            </p>
-        </div>
+            <div class="entry">
+                <h3>
+                    <span data-translate="tl_club_title">🚗 Associative Life: Club 205 Savoie</span>
+                    <div class ="link_to_life">  
+                        <a href="https://www.instagram.com/205.club.savoie?igsh=MTdvdGJoazY1anFkMw==" target="_blank" title="Club 205 Savoie Link">🔗</a>
+                    </div>
+                </h3>
+                <p data-translate="tl_club_desc">
+                    I am the president of my 205 club in Savoie. This role allows me to develop my skills in team management, event organization, and sharing my passion for this iconic model with other enthusiasts.
+                </p>
+            </div>
 
-        <div class="entry">
-            <h3>
-                <span>🤸 Sports and Hobbies</span>
-                <div class ="link_to_life">  
-                    <a href="https://etoilemotteraine.comiti-sport.fr/" target="_blank" title="Gymnastics Club Link">🔗</a>
-                </div>
-            </h3>
-            <p>
-                I have been practicing Gymnastics for 10 years. This sport has taught me rigor, perseverance, and precision—fundamental assets in the field of programming.
-            </p>
         </div>
-        
-        <div class="entry">
-            <h3>
-                <span>⚙️ Personal Mechanical Projects</span>
-                <div class ="link_to_life"> 
-                    <a href="mechanics.html" title="View Mechanical Projects Gallery">🔗</a> 
-                </div>
-            </h3>
-            <p>
-                As a mechanic and restoration enthusiast, I am currently working on repairing my car, a Peugeot 205 Junior, as well as an MBK 40V moped. My next project will be the restoration of a Peugeot 125 LD 57 TAL motorcycle.
-            </p>
-        </div>
-
-        <div class="entry">
-            <h3>
-                <span>🚗 Associative Life: Club 205 Savoie</span>
-                <div class ="link_to_life">  
-                    <a href="https://www.instagram.com/205.club.savoie?igsh=MTdvdGJoazY1anFkMw==" target="_blank" title="Club 205 Savoie Link">🔗</a>
-                </div>
-            </h3>
-            <p>
-                I am the president of my 205 club in Savoie. This role allows me to develop my skills in team management, event organization, and sharing my passion for this iconic model with other enthusiasts.
-            </p>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <section id="experience" class="section">
-        <h2>Professional and Club Experience</h2>
+        <h2 data-translate="section_exp">Professional and Club Experience</h2>
 
         <div class="timeline">
             <div class="entry">
-                <h3>Full-Stack Web Development Project (University of savoy / iut annecy – Annecy-le vieux, France- Humanis)</h3>
-                <p>
+                <h3 data-translate="exp_web_title">Full-Stack Web Development Project (University of savoy / iut annecy – Annecy-le vieux, France- Humanis)</h3>
+                <p data-translate="exp_web_desc">
                     Managed and developed a Laravel-based website for Humanis as part of a university project, handling data management, programming, and design. Coordinated team efforts to ensure successful project delivery.
                     <br>Tech used: PHP, Laravel, HTML, CSS, SQL.
                 </p>
             </div>
 
             <div class="entry">
-                <h3>Volunteer Coaching & Discipline (La Salesienne / Étoile Motteraine - Savoy, France)</h3>
-                <p>
+                <h3 data-translate="exp_coach_title">Volunteer Coaching & Discipline (La Salesienne / Étoile Motteraine - Savoy, France)</h3>
+                <p data-translate="exp_coach_desc">
                     Volunteered as a coach for children and teens (ages 4 to 15) in gymnastics, organizing sessions and leading activities. Focused on promoting discipline and teamwork in a sports environment.
                 </p>
             </div>
             
             <div class="entry">
-                <h3>Physical Labor & Teamwork (Grand Chambéry - Chambéry, France)</h3>
-                <p>
+                <h3 data-translate="exp_labor_title">Physical Labor & Teamwork (Grand Chambéry - Chambéry, France)</h3>
+                <p data-translate="exp_labor_desc">
                     Executed physical tasks for waste collection management, ensuring safety and demonstrating efficient collaboration and responsibility within the team.
                 </p>
             </div>
@@ -149,12 +147,12 @@
     </section>
 
     <section id="skills" class="section">
-        <h2>SKILLS, TECHNOLOGIES & LANGUAGES</h2>
+        <h2 data-translate="section_skills">SKILLS, TECHNOLOGIES & LANGUAGES</h2>
         
         <div class="skills-container"> 
             
             <div class="skill-category">
-                <h3>DEVELOPMENT LANGUAGES</h3>
+                <h3 data-translate="cat_dev">DEVELOPMENT LANGUAGES</h3>
                 <ul class="skill-list">
                     <li data-level="65">HTML / CSS / JavaScript</li>
                     <li data-level="80">Python</li>
@@ -164,7 +162,7 @@
             </div>
             
             <div class="skill-category">
-                <h3>DATA & DATABASE</h3>
+                <h3 data-translate="cat_data">DATA & DATABASE</h3>
                 <ul class="skill-list">
                     <li data-level="80">SQL / PostgreSQL</li>
                     <li data-level="85">Power BI</li>
@@ -173,7 +171,7 @@
             </div>
             
             <div class="skill-category">
-                <h3>TOOLS & DESIGN</h3>
+                <h3 data-translate="cat_tools">TOOLS & DESIGN</h3>
                 <ul class="skill-list">
                     <li data-level="85">Git / GitHub / GitLab</li>
                     <li data-level="50">Adobe Photoshop / Illustrator</li>
@@ -183,12 +181,12 @@
             </div>
             
             <div class="skill-category">
-                <h3>LANGUAGE SKILLS</h3>
+                <h3 data-translate="cat_lang">LANGUAGE SKILLS</h3>
                 <ul class="skill-list">
-                    <li data-level="99">French: Native speaker</li>
-                    <li data-level="75">English: B2 (Upper intermediate)</li>
-                    <li data-level="60">Italian: B1 (Intermediate)</li>
-                    <li data-level="20">Finnish: A0 (Beginner)</li>
+                    <li data-level="99" data-translate="lang_fr">French: Native speaker</li>
+                    <li data-level="75" data-translate="lang_en">English: B2 (Upper intermediate)</li>
+                    <li data-level="60" data-translate="lang_it">Italian: B1 (Intermediate)</li>
+                    <li data-level="20" data-translate="lang_fi">Finnish: A0 (Beginner)</li>
                 </ul>
             </div>
             
@@ -196,158 +194,125 @@
     </section>
 
     <section id="projects" class="section">
-        <h2>Projects</h2>
+        <h2 data-translate="section_projects">Projects</h2>
 
         <div class="filters">
-            <button data-filter="all" class="active">All</button>
-            <button data-filter="academic">Academic</button>
-            <button data-filter="personal">Personal</button>
-            <button data-filter="company">Company</button>
+            <button data-filter="all" class="active" data-translate="filter_all">All</button>
+            <button data-filter="academic" data-translate="filter_academic">Academic</button>
+            <button data-filter="personal" data-translate="filter_personal">Personal</button>
+            <button data-filter="company" data-translate="filter_company">Company</button>
         </div>
         
         <div class="project-grid">
 
             <div class="project-card web academic personal all open-lightbox-trigger" data-src="assets/projects/portfolio.png">
-                <img 
-                    src="assets/projects/portfolio.png" 
-                    class="project-img open-lightbox-trigger" 
-                    alt="Screenshot of the Current Portfolio"
-                    data-src="assets/projects/portfolio.png"
-                >
-                <h3>My Personal & Academic Portfolio (Jules CAMELIN)</h3>
-                <p>Complete creation of this Formula 1-themed portfolio. It features a futuristic design, synchronized animations.</p>
-                <p class="technologies">Tech Used: HTML5, CSS, JavaScript </p>
-                <p class="date">Ongoing</p> 
-                <a href="https://github.com/julescamelin/portfolio" target="_blank" class="btn">View Source Code</a>
+                <img src="assets/projects/portfolio.png" class="project-img open-lightbox-trigger" alt="Screenshot of the Current Portfolio" data-src="assets/projects/portfolio.png">
+                <h3 data-translate="proj_portfolio_title">My Personal & Academic Portfolio (Jules CAMELIN)</h3>
+                <p data-translate="proj_portfolio_desc">Complete creation of this Formula 1-themed portfolio. It features a futuristic design, synchronized animations.</p>
+                <p data-translate="proj_portfolio_tech" class="technologies">Tech Used: HTML5, CSS, JavaScript</p>
+                <p class="date" data-translate="date_ongoing">Ongoing</p> 
+                <a href="https://github.com/julescamelin/portfolio" target="_blank" class="btn" data-translate="btn_source">View Source Code</a>
             </div>
+
             <div class="project-card academic">
-                <img 
-                    src="assets/projects/loxam.png" 
-                    class="project-img open-lightbox-trigger" 
-                    alt="LOXAM Project"
-                    data-src="assets/projects/loxam.png"
-                > 
+                <img src="assets/projects/loxam.png" class="project-img open-lightbox-trigger" alt="LOXAM Project" data-src="assets/projects/loxam.png"> 
                 <h3>LOXAM (BUT2)</h3>
-                <p>
-                    Academic project involving database design and application development for a rental company (LOXAM). Focus on system architecture and robust database interaction.
-                </p>
-                <p class="technologies">Tech Used: Visual Studio, C#, PostgreSQL, UML</p>
-                <p class="date">March 2025</p> 
-                <a href="https://github.com/JulesCamelin/loxam.git" target="_blank" class="btn">View Source Code</a>
+                <p data-translate="proj_loxam_desc">Academic project involving database design and application development for a rental company (LOXAM). Focus on system architecture and robust database interaction.</p>
+                <p data-translate="proj_loxam_tech" class="technologies">Tech Used: Visual Studio, C#, PostgreSQL, UML</p>
+                <p data-translate="proj_loxam_date" class="date">March 2025</p> 
+                <a href="https://github.com/JulesCamelin/loxam.git" target="_blank" class="btn" data-translate="btn_source">View Source Code</a>
             </div>
             
             <div class="project-card academic">
-                <img 
-                    src="assets/projects/SAE_FROGGUN.png" 
-                    class="project-img open-lightbox-trigger" 
-                    alt="SAE"
-                    data-src="assets/projects/SAE_FROGGUN.png"
-                >
+                <img src="assets/projects/SAE_FROGGUN.png" class="project-img open-lightbox-trigger" alt="SAE" data-src="assets/projects/SAE_FROGGUN.png">
                 <h3>SAE Project (Froggun - BUT1)</h3>
-                <p>
-                    Academic project completed as part of my first year of IT studies (BUT1). This was a group project (3 people) involving game development.
-                </p>
-                <p class="technologies">Tech Used: C#, Unity</p>
-                <p class="date">March 2025</p>
-                <a href="https://github.com/JulesCamelin/froggun.git" target="_blank" class="btn">View Source Code</a>
+                <p data-translate="proj_frog_desc">Academic project completed as part of my first year of IT studies (BUT1). This was a group project (3 people) involving game development.</p>
+                <p data-translate="proj_frog_tech" class="technologies">Tech Used: C#, Unity</p>
+                <p data-translate="proj_frog_date" class="date">March 2025</p>
+                <a href="https://github.com/JulesCamelin/froggun.git" target="_blank" class="btn" data-translate="btn_source">View Source Code</a>
             </div>
 
             <div class="project-card personal">
-                <img 
-                    src="assets/projects/cupidon.png" 
-                    class="project-img open-lightbox-trigger" 
-                    alt="Cupidon"
-                    data-src="assets/projects/cupidon.png"
-                >
+                <img src="assets/projects/cupidon.png" class="project-img open-lightbox-trigger" alt="Cupidon" data-src="assets/projects/cupidon.png">
                 <h3>CUPIDON Game</h3>
-                <p>Terminal-coded game (2023/2024).</p>
-                <p class="technologies">Tech Used: Python, Command Line Interface</p>
+                <p data-translate="proj_cupidon_desc">Terminal-coded game (2023/2024).</p>
+                <p data-translate="proj_cupidon_tech" class="technologies">Tech Used: Python, Command Line Interface</p>
                 <p class="date">2023 – 2024</p>
-                <a href="https://github.com/JulesCamelin/cupidon.git" target="_blank" class="btn">View Source Code</a>
+                <a href="https://github.com/JulesCamelin/cupidon.git" target="_blank" class="btn" data-translate="btn_source">View Source Code</a>
             </div>
 
             <div class="project-card personal">
-                <img 
-                    src="assets/projects/verso_205_club.png" 
-                    class="project-img open-lightbox-trigger" 
-                    alt="Club 205 Card"
-                    data-src="assets/projects/verso_205_club.png"
-                > 
-                <h3>Club 205 – Membership Card Design</h3>
-                <p>Designed a full membership card.</p>
-                <p class="technologies">Tech Used: CANVA</p>
-                <p class="date">October 2025</p>
-                <a href="https://www.canva.com/design/DAGzE2l7WeU/w4VPuJs5jLmrTLECmqO0hg/edit?utm_content=DAGzE2l7WeU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="btn">View Design</a>
+                <img src="assets/projects/verso_205_club.png" class="project-img open-lightbox-trigger" alt="Club 205 Card" data-src="assets/projects/verso_205_club.png"> 
+                <h3 data-translate="proj_club_title">Club 205 – Membership Card Design</h3>
+                <p data-translate="proj_club_desc">Designed a full membership card.</p>
+                <p data-translate="proj_club_tech" class="technologies">Tech Used: CANVA</p>
+                <p data-translate="proj_club_date" class="date">October 2025</p>
+                <a href="https://www.canva.com/design/DAGzE2l7WeU/w4VPuJs5jLmrTLECmqO0hg/edit?utm_content=DAGzE2l7WeU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="btn" data-translate="btn_design">View Design</a>
             </div>
 
             <div class="project-card company">
-                <img 
-                    src="assets/projects/porte_gym.png" 
-                    class="project-img open-lightbox-trigger" 
-                    alt="Gym Club Door"
-                    data-src="assets/projects/porte_gym.png"
-                >
-                <h3>Gym Club – Entrance Visual</h3>
-                <p>Created the official gym entrance visual.</p>
-                <p class="technologies">Tech Used: CANVA</p>
-                <p class="date">October 2025</p>
-                <a href="https://www.canva.com/design/DAG114BF3Z4/oEVc0wZjlHoP-8SGMebKEA/edit?utm_content=DAG114BF3Z4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="btn">View Design</a>
+                <img src="assets/projects/porte_gym.png" class="project-img open-lightbox-trigger" alt="Gym Club Door" data-src="assets/projects/porte_gym.png">
+                <h3 data-translate="proj_gym_title">Gym Club – Entrance Visual</h3>
+                <p data-translate="proj_gym_desc">Created the official gym entrance visual.</p>
+                <p data-translate="proj_gym_tech" class="technologies">Tech Used: CANVA</p>
+                <p data-translate="proj_gym_date" class="date">October 2025</p>
+                <a href="https://www.canva.com/design/DAG114BF3Z4/oEVc0wZjlHoP-8SGMebKEA/edit?utm_content=DAG114BF3Z4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="btn" data-translate="btn_design">View Design</a>
             </div>
 
         </div>
         
         <div style="text-align: center; margin-top: 40px;">
-            <a href="mechanics.html" class="btn download-btn">View My Other Personal Projects</a>
+            <a href="mechanics.html" class="btn download-btn" data-translate="view_other_projects">View My Other Personal Projects</a>
         </div>
 
     </section>
     
     <section id="references" class="section">
-        <h2>Professional References</h2>
-        <p class="ref-intro">
+        <h2 data-translate="section_refs">Professional References</h2>
+        <p class="ref-intro" data-translate="ref_intro">
             Two professional references are available upon request to validate my skills and commitment in professional and associative settings. They include:
         </p>
         <div class="contact-grid">
             <div class="contact-item">
-                <h3>Reference 1: Summer job</h3>
-                <p>Waste collection manager, Grand Chambéry</p>
+                <h3 data-translate="ref_1_title">Reference 1: Summer job</h3>
+                <p data-translate="ref_1_desc">Waste collection manager, Grand Chambéry</p>
                 <p>alexandre.bonnivard@grandchambery.fr</p>
             </div>
             <div class="contact-item">
-                <h3>Reference 2: Military</h3>
-                <p>My Commander (13th BCA)</p>
+                <h3 data-translate="ref_2_title">Reference 2: Military</h3>
+                <p data-translate="ref_2_desc">My Commander (13th BCA)</p>
                 <p>luc.bourliere@defense.gouv.fr</p>
             </div>
         </div>
         <div class="timeline" style="margin-top: 40px;">
             <div class="entry">
-                <p>
+                <p data-translate="ref_contact_info">
                     Please use the contact form or email below to request a direct connection with these individuals.
                 </p>
             </div>
         </div>
     </section>
+
     <section id="cv" class="section">
-        <h2>My CV</h2>
-        <p>You can preview and download my CV below:</p>
+        <h2 data-translate="section_cv">My CV</h2>
+        <p data-translate="cv_preview">You can preview and download my CV below:</p>
 
         <embed src="assets/CV.pdf" type="application/pdf" class="cv-viewer">
         
-
-        <a href="assets/CV.pdf" download class="btn download-btn">
+        <a href="assets/CV.pdf" id="cv-link" download class="btn download-btn" data-translate="cv_button">
             Download my CV (PDF)
         </a>
     </section>
 
     <section id="contact" class="section">
-        <h2>Contact Me</h2>
+        <h2 data-translate="section_contact">Contact Me</h2>
         <div class="contact-grid">
             <a href="mailto:JULESCAMELIN2@GMAIL.COM" class="contact-item">
                 <h3>Email</h3>
                 <p>JULESCAMELIN2@GMAIL.COM</p>
             </a>
             <a href="tel:+33632947865" class="contact-item">
-                <h3>Phone</h3>
+                <h3 data-translate="contact_phone">Phone</h3>
                 <p>+33 6 32 94 78 65</p>
             </a>
             <a href="https://www.linkedin.com/in/jules-camelin" target="_blank" class="contact-item">
@@ -358,30 +323,35 @@
     </section>
     
     <section id="contact-form-section" class="section">
-        <h2>Send Me a Message</h2>
+        <h2 data-translate="form_title">Send Me a Message</h2>
+        
         <form id="contactForm" class="f1-contact-form">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your Name">
+                <label for="name" data-translate="form_name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name" data-translate="form_ph_name">
                 <div class="f1-light-effect"></div>
             </div>
+            
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                <label for="email" data-translate="form_email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com" data-translate="form_ph_email">
                 <div class="f1-light-effect"></div>
             </div>
+            
             <div class="form-group">
-                <label for="phone">Phone (Optional)</label>
+                <label for="phone" data-translate="form_phone">Phone (Optional)</label>
                 <input type="tel" id="phone" name="phone" placeholder="+XX XXXXXXXXX">
                 <div class="f1-light-effect"></div>
             </div>
+            
             <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or inquiry..."></textarea>
+                <label for="message" data-translate="form_msg">Your Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or inquiry..." data-translate="form_ph_msg"></textarea>
                 <div class="f1-light-effect"></div>
             </div>
+            
             <button type="submit" class="f1-submit-btn">
-                Send Message
+                <span data-translate="form_btn">Send Message</span>
                 <span class="f1-car-animation"></span>
             </button>
             <div id="formMessage" class="form-submission-message"></div>
@@ -389,7 +359,7 @@
     </section>
 
     <footer>
-        <p>© 2025 – Jules Camelin Portfolio</p>
+        <p data-translate="footer_txt">© 2025 – Jules Camelin Portfolio</p>
     </footer>
 
 <script src="script.js" defer></script> 

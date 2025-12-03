@@ -7,8 +7,28 @@
     <link rel="stylesheet" href="style.css"> 
     
     <style>
-        /* Specific Styles for the Mechanical Gallery (gardez ceux-ci dans mechanics.html ou déplacez-les dans style.css si vous préférez) */
-        
+        /* === 1. STYLE DU BOUTON LANGUE (Directement ici pour garantir qu'il s'affiche) === */
+        .lang-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999; /* Très élevé pour être au-dessus de tout */
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #FF0000;
+            color: white;
+            padding: 8px 15px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover {
+            background-color: #FF0000;
+            color: black;
+        }
+
+        /* === 2. Vos styles spécifiques pour la galerie === */
         .mechanics-content {
             padding-top: 120px;
             padding: 80px 10%;
@@ -52,7 +72,7 @@
 
         .image-comparison img {
             width: 100%;
-            height: 180px; /* Fixed height for alignment */
+            height: 180px; 
             object-fit: cover;
             border: 1px solid #333;
             cursor: pointer; 
@@ -64,9 +84,8 @@
             margin-top: 5px;
         }
 
-        /* Ensures single image styling is clean */
         .single-image img {
-            height: 250px; /* Slightly taller for the single preview */
+            height: 250px; 
         }
         
         @media (max-width: 600px) {
@@ -78,7 +97,7 @@
             }
         }
 
-        /* LIGHTBOX CSS (Gardez-le ici si vous ne voulez pas le mettre dans style.css) */
+        /* LIGHTBOX CSS */
         .lightbox {
             display: none; 
             position: fixed;
@@ -111,8 +130,6 @@
             cursor: pointer;
             z-index: 1001;
         }
-        /* FIN LIGHTBOX CSS */
-
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -120,27 +137,29 @@
 
     <canvas id="speedCanvas"></canvas> 
 
+    <button id="lang-toggle" class="lang-btn">🇫🇷 FR</button>
+
     <header>
         <div class="checkers"></div>
     
-        <h1 class="logo">Jules CAMELIN</h1> 
+        <h1 class="logo" data-translate="intro_title">Jules CAMELIN</h1> 
     
         <nav>
-            <a href="index.html#about">← Back to Portfolio</a>
+            <a href="index.html#about" data-translate="nav_home">← Back to Portfolio</a>
         </nav>
     </header>
 
     <section class="section mechanics-content">
-        <h2>🔧 Engine and Restoration Projects</h2>
-        <p>
+        <h2 data-translate="meca_title">🔧 Engine and Restoration Projects</h2>
+        <p data-translate="meca_intro_desc">
             Beyond IT, mechanics is a strong passion. These projects demonstrate my rigor, perseverance, and ability to manage hands-on projects, from initial diagnosis to final finishing.
         </p>
 
         <div class="mechanics-gallery">
             
             <div class="mechanics-project" id="205">
-                <h3>Peugeot 205 Junior (Repair and Bodywork)</h3>
-                <p>Complete engine repair and ignition system maintenance, along with bodywork restoration. A long-term project that got the car back on the road.</p>
+                <h3 data-translate="meca_peugeot_title">Peugeot 205 Junior (Repair and Bodywork)</h3>
+                <p data-translate="meca_peugeot_desc">Complete engine repair and ignition system maintenance, along with bodywork restoration. A long-term project that got the car back on the road.</p>
 
                 <div class="image-comparison">
                     <figure>
@@ -150,7 +169,7 @@
                             class="project-img open-lightbox-trigger"
                             data-src="assets/meca/205_debut.jpg"
                         >
-                        <figcaption>Before</figcaption>
+                        <figcaption data-translate="meca_before">Before</figcaption>
                     </figure>
                     <figure>
                         <img 
@@ -159,14 +178,14 @@
                             class="project-img open-lightbox-trigger"
                             data-src="assets/meca/205_fin.jpg"
                         >
-                        <figcaption>Finished result</figcaption>
+                        <figcaption data-translate="meca_after">Finished result</figcaption>
                     </figure>
                 </div>
             </div>
 
             <div class="mechanics-project" id="40V">
-                <h3>MBK 40V (Full Restoration)</h3>
-                <p>Total disassembly for a complete restoration, including engine overhaul, frame painting, and reassembly using original parts.</p>
+                <h3 data-translate="meca_mbk_title">MBK 40V (Full Restoration)</h3>
+                <p data-translate="meca_mbk_desc">Total disassembly for a complete restoration, including engine overhaul, frame painting, and reassembly using original parts.</p>
 
                 <div class="image-comparison">
                     <figure>
@@ -176,7 +195,7 @@
                             class="project-img open-lightbox-trigger"
                             data-src="assets/meca/40V_debut.jpg"
                         >
-                        <figcaption>Initial state</figcaption>
+                        <figcaption data-translate="meca_initial">Initial state</figcaption>
                     </figure>
                     <figure>
                         <img 
@@ -185,14 +204,14 @@
                             class="project-img open-lightbox-trigger"
                             data-src="assets/meca/40V_fin.jpg"
                         >
-                        <figcaption>Restoration completed</figcaption>
+                        <figcaption data-translate="meca_restored">Restoration completed</figcaption>
                     </figure>
                 </div>
             </div>
 
             <div class="mechanics-project" id="125">
-                <h3>Peugeot 125 LD 57 TAL (Restoration In Progress)</h3>
-                <p>My next major project. Restoring a vintage motorcycle requiring expertise in 2-stroke engines and full chassis repair. Work has just started.</p>
+                <h3 data-translate="meca_moto_title">Peugeot 125 LD 57 TAL (Restoration In Progress)</h3>
+                <p data-translate="meca_moto_desc">My next major project. Restoring a vintage motorcycle requiring expertise in 2-stroke engines and full chassis repair. Work has just started.</p>
 
                 <div class="image-comparison single-image">
                     <figure>
@@ -202,7 +221,7 @@
                             class="project-img open-lightbox-trigger"
                             data-src="assets/meca/125_ld_57_TAL.jpg"
                         >
-                        <figcaption>Current state / Project start</figcaption>
+                        <figcaption data-translate="meca_current">Current state / Project start</figcaption>
                     </figure>
                 </div>
             </div>
@@ -211,7 +230,7 @@
     </section>
 
     <footer>
-        <p>© 2025 – Jules Camelin Portfolio</p>
+        <p data-translate="footer_txt">© 2025 – Jules Camelin Portfolio</p>
     </footer>
 
     <div id="lightbox" class="lightbox">
