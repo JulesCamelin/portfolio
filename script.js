@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             intro_title: "Jules CAMELIN",
             intro_subtitle: "Data Analysis & Performance Engineering",
             intro_desc: "Mechanic & Developer based in France.",
-            cv_button: "Download CV",
+            cv_button: "Download CV (PDF)",
             
             section_about: "My Profile and Vision",
             bio_title: "IT Student | Data & Performance Enthusiast",
