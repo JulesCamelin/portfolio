@@ -497,14 +497,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Rendre les feux cliquables pour naviguer (ce comportement reste le même)
         startLights.forEach(light => {
             light.addEventListener('click', (e) => {
+                // AJOUT : Affiche dans la console sur quoi on clique
+                console.log("Clic détecté sur :", light.textContent);
+                
                 e.preventDefault(); 
                 const targetId = light.getAttribute('href');
+                console.log("Cible visée :", targetId); // Vérifie si ça affiche #skills
+        
                 const targetElement = document.querySelector(targetId);
+                
                 if (targetElement) {
+                    console.log("Element trouvé, on scroll !");
                     targetElement.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    console.error("ERREUR : Impossible de trouver la section " + targetId);
                 }
                 
-                // Active le feu cliqué, et désactive les autres (pour une navigation)
+                // Gestion des classes active
                 startLights.forEach(btn => btn.classList.remove('active'));
                 light.classList.add('active');
             });
