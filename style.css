@@ -593,6 +593,7 @@ nav a:hover {
     padding: 8px 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    z-index: 100;
 }
 
 .start-light {
